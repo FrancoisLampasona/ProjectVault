@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wather App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.1/lottie.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=humidity_high"
+    />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <h1 id="title">Weather App</h1>
+    <div class="container">
+      <div class="search-bar">
+        <input type="text" placeholder="Inserisci la città" />
+        <button><span class="material-symbols-outlined"> search </span></button>
+      </div>
+      <div class="contenitore-svg">
+        <div id="lottie-container" style="width: 300px; height: 300px"></div>
+      </div>
+      <div class="info">
+        <h1>30 Gradi °</h1>
+        <h2>Città</h2>
+        <div class="row-weather-info">
+          <div id="Humidity">
+            <span class="material-symbols-outlined">U</span>
+            <div id="number-humidity">
+              <p>Number.%</p>
+              <p>Humidity</p>
+            </div>
+          </div>
+          <div id="Wind-Speed">
+            <span class="material-symbols-outlined"> W </span>
+            <div id="number-Wind-Speed">
+              <p>Number.%</p>
+              <p>Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var animation = lottie.loadAnimation({
+        container: document.getElementById("lottie-container"), // Contenitore
+        renderer: "svg", // Renderer SVG
+        loop: true, // Ripetizione infinita
+        autoplay: true, // Inizio automatico
+        path: "./assets/AnimatedSun.json", // Percorso del file JSON
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@506&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tilt+Neon&display=swap");
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Tilt Neon", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  gap: 50px;
+}
+
+body {
+  background: linear-gradient(220.55deg, #3a9cdd 0%, #abe8fa 100%);
+}
+
+#title {
+  font-size: 5rem;
+  font-weight: 500;
+  color: rgba(252, 218, 29, 0.912);
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  flex-grow: 1;
+  border: 0;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+}
+
+.search-bar input::placeholder {
+  padding: 10px;
+  color: #e7474d;
+  font-size: 1rem;
+  font-family: "Arial", sans-serif;
+  font-weight: 500;
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.search-bar input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ff7ec7;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(220.55deg, #ffed46 0%, #ff7ec7 100%);
+  width: 20vw;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contenitore-svg {
+  display: flex;
+  justify-content: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-weather-info {
+  margin-top: 2rem;
+  display: flex;
+  gap: 50px;
+}
+
+#Humidity {
+  display: flex;
+  gap: 20px;
+}
+#Wind-Speed {
+  display: flex;
+  gap: 20px;
+}
