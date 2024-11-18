@@ -44,7 +44,7 @@
             ></button>
           </div>
           <div class="carousel-inner vh-100 rounded-5">
-            <div class="carousel-item active vh-100">
+            <div id="primo" class="carousel-item active vh-100">
               <div
                 class="d-flex flex-column justify-content-center align-items-center position-absolute w-100 h-100"
               >
@@ -62,7 +62,7 @@
                 >
                   Benvenuto sulla piattaforma
                 </h1>
-                <button
+                <button onclick="change_bg()"
                   class="nextButton col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 mt-5"
                 >
                   Avanti
@@ -70,12 +70,12 @@
               </div>
             </div>
 
-            <div class="carousel-item vh-100">
+            <div id="secondo" class="carousel-item vh-100">
               <img
                 id="back-ground-1"
                 src="./assets/imgs/music_party.jpg"
                 alt="Music_Party"
-                style="object-fit: cover"
+                style="object-fit: cover; opacity: 0.6"
               />
               <div
                 class="d-flex flex-column justify-content-center align-items-center position-absolute w-100 h-100"
@@ -95,7 +95,7 @@
                   Scopri il piacere della musica , condividi i tuoi brani
                   preferiti con le persone che ami !
                 </h1>
-                <button
+                <button onclick="change_bg()"
                   class="nextButton col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 mt-5"
                 >
                   Avanti
@@ -103,12 +103,12 @@
               </div>
             </div>
 
-            <div class="carousel-item vh-100">
+            <div id="terzo" class="carousel-item vh-100">
               <img
                 id="back-ground-1"
                 src="./assets/imgs/music_party_2.jpg"
                 alt="..."
-                style="object-fit: cover"
+                style="object-fit: cover; opacity: 0.6"
               />
               <div
                 class="d-flex flex-column justify-content-center align-items-center position-absolute w-100 h-100"
@@ -124,13 +124,153 @@
                 </div>
                 <h1
                   class="text-center text-white mt-5 col-10 col-sm-7 col-md-7"
-                >
-                  PROVA 3
-                </h1>
+                ></h1>
+                <div class="container d-flex justify-content-center gap-5">
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal"
+                    class="nextButton col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 mt-4"
+                  >
+                    Login
+                  </button>
+                  <button
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#registerModal"
+                    class="nextButton col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 mt-4"
+                  >
+                    Registrati
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modale per Login -->
+        <div
+          class="modal fade"
+          id="loginModal"
+          tabindex="-1"
+          aria-labelledby="loginModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
                 <button
-                  class="nextButton col-4 col-sm-3 col-md-2 col-lg-2 col-xl-1 mt-5"
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="loginEmail" class="form-label"
+                      >Email address</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="loginEmail"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="loginPassword" class="form-label"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="loginPassword"
+                      required
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
                 >
-                  Avanti
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modale per Register -->
+        <div
+          class="modal fade"
+          id="registerModal"
+          tabindex="-1"
+          aria-labelledby="registerModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="registerModalLabel">Register</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="registerName" class="form-label">Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="registerName"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="registerEmail" class="form-label"
+                      >Email address</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="registerEmail"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="registerPassword" class="form-label"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="registerPassword"
+                      required
+                    />
+                  </div>
+                  <button type="submit" class="btn btn-success">
+                    Register
+                  </button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
                 </button>
               </div>
             </div>
