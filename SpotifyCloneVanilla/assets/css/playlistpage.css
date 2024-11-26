@@ -1,0 +1,18 @@
+#profile{
+    width: inherit;
+  }
+  
+#imgUtenteMenu{
+  width: 40px;
+  object-fit: cover;
+}
+
+#Category {
+  padding-bottom: 55px;
+}
+
+@media (min-width: 992px) {
+  #Category {
+    padding-bottom: unset;
+  }
+}

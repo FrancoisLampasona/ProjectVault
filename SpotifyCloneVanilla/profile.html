@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Spotify - Profile</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="./assets/imgs/loghi/Spotify_Icon_Green.svg"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="./assets/css/circular-font.css" />
+    <link rel="stylesheet" href="./assets/css/profilepage.css" />
+  </head>
+
+  <body class="text-white">
+    <header class="text-white">
+      <nav
+        class="navbar px-4 fixed-bottom justify-content-center d-lg-none"
+        style="bottom: -2px"
+      >
+        <div class="container">
+          <a class="navbar-brand" href="./homepage.html">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center text-white opacity-75"
+            >
+              <i class="bi bi-house-door fs-1"></i>
+              <p style="font-size: 0.8em" class="m-0">Home</p>
+            </div>
+          </a>
+          <a class="navbar-brand" href="./search.html">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center text-white"
+            >
+              <i class="bi bi-search fs-1 fw-bold"></i>
+              <p style="font-size: 0.8em" class="m-0">Cerca</p>
+            </div>
+          </a>
+          <a class="navbar-brand" href="./library.html">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center text-white opacity-75"
+            >
+              <i class="bi bi-collection-play fs-1"></i>
+              <p style="font-size: 0.8em" class="m-0">Libreria</p>
+            </div>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Colonna sinistra -->
+
+          <div
+            id="colonna-sinistra"
+            class="d-none d-lg-block col-lg-4 col-xl-3"
+            style="height: 100vh; overflow: auto"
+          ></div>
+
+          <!-- Colonna centrale -->
+
+          <div
+            id="colonna-centrale"
+            style="
+              height: 100vh;
+              overflow-y: auto;
+              overflow-x: hidden;
+              padding-left: 0px;
+              padding-right: 0px;
+            "
+            class="col col-xl-9 album"
+          >
+            <div
+              class="container-fluid d-lg-block"
+              id="top-album-container"
+              style="padding-left: 0px; padding-right: 0px"
+            >
+              <div
+                class="container-fluid d-flex align-items-center justify-content-between flex-grow-0 px-md-4 pt-2"
+              >
+                <div
+                  class="bg-icon bg-black rounded-circle me-2 d-none d-lg-flex"
+                  width="50"
+                  height="50"
+                >
+                  <a
+                    href="./homepage.html"
+                    class="text-white align-items-center"
+                  >
+                    <i class="text-center bi bi-arrow-left fs-3 mt-2"></i
+                  ></a>
+                </div>
+                <div class="d-lg-none"></div>
+                <div
+                  id="doubleDrop"
+                  class="d-flex justify-content-between align-items-center mt-2 me-2 "
+                >
+                  <!-- DropDown 1 -->
+                  <div
+                    class="user-dropdown mt-5 d-none d-lg-flex align-items-center justify-content-end px-3"
+                    style="z-index: 1"
+                  >
+                    <div class="dropdown d-flex flex-column align-items-center">
+                      <button
+                        class="btn btn-dark badge rounded-pill dropdown-toggle d-flex align-items-center fs-5"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        data-bs-offset="0,10"
+                        aria-expanded="false"
+                        style="padding: 8px 15px"
+                      >
+                        <img
+                          id="imgUtenteMenu"
+                          src="./assets/imgs/imgProfile/user_5.jpg"
+                          class="rounded-circle me-2"
+                          width="40"
+                          height="40"
+                          alt="User Avatar"
+                        />
+                        <span id="nomeUtenteMenu"> Francois Lampasona</span>
+                      </button>
+                      <ul
+                        class="dropdown-menu dropdown-menu-end bg-dark border-0 shadow-lg"
+                        style="min-width: 200px"
+                      >
+                        <li>
+                          <a
+                            class="dropdown-item text-light d-flex align-items-center"
+                            href="./profile.html"
+                          >
+                            <i class="bi bi-gear pe-3"></i> Impostazioni
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item text-light d-flex align-items-center"
+                            href="./welcome-page.html"
+                            onclick="esci()"
+                          >
+                            <i class="bi bi-person-circle pe-3"></i> Esci
+                          </a>
+                        </li>
+                      </ul>
+                      <button
+                        id="amici"
+                        onclick="listaAmici()"
+                        class="btn btn-dark rounded-pill mt-2 d-none d-xl-block border-2 text-light fs-6"
+                        style="z-index: 2"
+                      >
+                        Lista amici
+                      </button>
+                    </div>
+                  </div>
+                  <!-- DropDown 2 -->
+                  <div
+                    class="dropdown bg-icon align-items-center bg-black rounded-circle pt-1"
+                    style="z-index: 100"
+                    width="50"
+                    height="50"
+                  >
+                    <i
+                      class="bi bi-gear fs-3"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    ></i>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a
+                          class="dropdown-item bg-transparent"
+                          onclick="Modifica()"
+                          >Modifica</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="container text-center mt-4 d-flex align-items-center justify-content-center"
+              >
+                <div
+                  class="rounded-circle overflow-hidden mx-auto"
+                  style="width: 120px; height: 120px"
+                >
+                  <img
+                    id="ProfileImg"
+                    src="/assets/imgs/loghi/profile-icon.svg"
+                    alt="Profile"
+                    class="img-fluid w-100 h-100"
+                  />
+                </div>
+              </div>
+
+              <h1 class="text-center my-5">Impostazioni Profilo :</h1>
+              <div
+                class="container d-flex flex-column justify-content-center pt-lg-5"
+              >
+                <ul class="list-group list-group-flush">
+                  <div class="row listInfo"></div>
+                </ul>
+              </div>
+              <button
+                onclick="Esci()"
+                id="esci"
+                type="button"
+                class="btn btn-lg mt-4 mx-auto d-block col-6 col-lg-2"
+              >
+                Esci
+              </button>
+            </div>
+          </div>
+
+          <!-- Colonna di destra -->
+
+          <div id="colonna-destra" class="d-none col-lg-2 col-xl-2"></div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/JS/profile.js"></script>
+    <script src="./assets/JS/utility.js"></script>
+  </body>
+</html>

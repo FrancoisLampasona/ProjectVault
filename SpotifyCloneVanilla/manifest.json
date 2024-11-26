@@ -1,0 +1,26 @@
+{
+  "name": "Prima Web App - Francois Lampasona",
+  "short_name": "Spotify Francois",
+  "description": "Una Progressive Web App realizzata da Francois Lampasona",
+  "start_url": "./welcome-page.html",
+  "display": "fullscreen",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "form_factor": "wide",
+  "icons": [
+    {
+      "src": "./assets/imgs/loghi/spotify_icon_app.svg",
+      "sizes": "150x150",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./assets/imgs/imgWelcomePage/imgMusic2.jpg",
+      "sizes": "1919x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Ignora file temporanei di sistema
+*.swp
+.DS_Store
+
+#Ignora la cartella  vscode 
+
+.vscode/

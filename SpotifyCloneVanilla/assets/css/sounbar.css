@@ -1,0 +1,142 @@
+.audio-navbar {
+  border-radius: 0px 0px 30px 30px;
+  padding: 0;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 0.8157387955182073) 100%
+  );
+  overflow-x: hidden;
+  z-index: 1050;
+  padding: 8px 10px;
+}
+
+.track-info h6 {
+  font-size: 0.85rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #32cd32; /* Testo verde acceso */
+}
+
+.controls button {
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000; /* Nero */
+  color: #32cd32; /* Verde acceso */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.controls button:hover {
+  background-color: #32cd32; /* Verde acceso */
+  color: #000000; /* Nero per contrasto */
+}
+
+.audio-progress {
+  height: 4px; /* Barra sottile */
+  background: linear-gradient(
+    90deg,
+    #006400,
+    #32cd32
+  ); /* Sfumatura verde scuro -> verde acceso */
+  border-radius: 5px;
+  cursor: pointer;
+  appearance: none;
+}
+
+.audio-progress::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #32cd32; /* Verde acceso */
+  cursor: pointer;
+}
+
+.audio-progress::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #32cd32; /* Verde acceso */
+  cursor: pointer;
+}
+
+.volume-control-container input {
+  width: 80px; /* Larghezza barra volume */
+  background: linear-gradient(90deg, #006400, #32cd32); /* Sfumatura verde */
+}
+
+.volume-progress {
+  appearance: none;
+  height: 4px;
+  border-radius: 5px;
+  background: #006400; /* Verde scuro */
+  outline: none;
+}
+
+.volume-progress::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #32cd32; /* Verde acceso */
+  cursor: pointer;
+}
+
+.volume-progress::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #32cd32; /* Verde acceso */
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .audio-navbar {
+    padding: 5px 8px; /* Riduci il padding */
+  }
+
+  .track-info img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .controls button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .progress-bar-container {
+    gap: 5px;
+  }
+
+  .volume-control-container {
+    display: none; /* Nascondi il volume in mobile */
+  }
+
+  .progress-bar-container span {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .audio-navbar {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .volume-control-container {
+    display: flex; /* Mostra il controllo volume */
+  }
+
+  .progress-bar-container {
+    margin: 0 15px; /* Spaziatura */
+  }
+}

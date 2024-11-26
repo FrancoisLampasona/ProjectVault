@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spotify - HomePage</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="./assets/imgs/loghi/Spotify_Icon_Green.svg"
+      type="image/png"
+    />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
+    <link rel="stylesheet" href="./assets/css/homepage.css" />
+  </head>
+  <body class="custom-bg-color">
+    <header>
+      <nav
+        class="navbar px-4 fixed-bottom justify-content-center d-lg-none"
+        style="bottom: -2px"
+      >
+        <div class="container">
+          <a class="navbar-brand" href="./homepage.html">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center text-white opacity-75"
+            >
+              <i class="bi bi-house-door fs-1"></i>
+              <p style="font-size: 0.8em" class="m-0">Home</p>
+            </div>
+          </a>
+          <a class="navbar-brand" href="./search.html">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center text-white"
+            >
+              <i class="bi bi-search fs-1 fw-bold"></i>
+              <p style="font-size: 0.8em" class="m-0">Cerca</p>
+            </div>
+          </a>
+          <a class="navbar-brand" href="./library.html">
+            <div
+              class="d-flex flex-column align-items-center justify-content-center text-white opacity-75"
+            >
+              <i class="bi bi-collection-play fs-1"></i>
+              <p style="font-size: 0.8em" class="m-0">Libreria</p>
+            </div>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Colonna sinistra -->
+          <div
+            id="colonna-sinistra"
+            class="d-none d-lg-block col-lg-4 col-xl-3"
+            style="height: 100vh; overflow: auto"
+          ></div>
+
+          <!-- Colonna centrale -->
+          <div
+            id="colonna-centrale"
+            style="
+              height: 100vh;
+              overflow-y: auto;
+              overflow-x: hidden;
+              padding-left: 0px;
+              padding-right: 0px;
+            "
+            class="col col-xl-9 album"
+          >
+            <div
+              class="container-fluid d-none d-lg-block"
+              id="top-album-container"
+              style="padding-left: 0px; padding-right: 0px"
+            >
+              <div
+                id="carouselExampleCaptions"
+                class="carousel slide position-relative"
+                data-bs-ride="carousel"
+                data-bs-interval="3000"
+                style="height: 50vh; overflow: hidden"
+              >
+                <!-- User Dropdown -->
+                <div
+                  class="user-dropdown mt-5 d-none d-lg-flex justify-content-end position-absolute w-100 px-3"
+                  style="z-index: 1"
+                >
+                  <div
+                    class="dropdown d-flex flex-column align-items-center position-relative"
+                  >
+                    <button
+                      class="btn btn-dark badge rounded-pill dropdown-toggle d-flex align-items-center fs-5"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      data-bs-offset="0,10"
+                      aria-expanded="false"
+                      style="padding: 8px 15px"
+                    >
+                      <img
+                        id="imgUtenteMenu"
+                        src="./assets/imgs/imgProfile/user_5.jpg"
+                        class="rounded-circle me-2"
+                        width="40"
+                        height="40"
+                        alt="User Avatar"
+                      />
+                      <span id="nomeUtenteMenu"> Francois Lampasona</span>
+                    </button>
+                    <ul
+                      class="dropdown-menu dropdown-menu-end bg-dark border-0 shadow-lg"
+                      style="min-width: 200px"
+                    >
+                      <li>
+                        <a
+                          class="dropdown-item text-light d-flex align-items-center"
+                          href="./profile.html"
+                        >
+                          <i class="bi bi-gear pe-3"></i> Impostazioni
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          class="dropdown-item text-light d-flex align-items-center"
+                          href="./welcome-page.html"
+                          onclick="esci()"
+                        >
+                          <i class="bi bi-person-circle pe-3"></i> Esci
+                        </a>
+                      </li>
+                    </ul>
+                    <button
+                      id="amici"
+                      onclick="listaAmici()"
+                      class="btn btn-dark rounded-pill mt-2 d-none d-lg-block border-2 text-light fs-6"
+                      style="z-index: 2"
+                    >
+                      Lista amici
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="0"
+                    class="active"
+                    aria-current="true"
+                    aria-label="Slide 1"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="1"
+                    aria-label="Slide 2"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="2"
+                    aria-label="Slide 3"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="3"
+                    aria-label="Slide 4"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="4"
+                    aria-label="Slide 5"
+                  ></button>
+                  <button
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide-to="5"
+                    aria-label="Slide 6"
+                  ></button>
+                </div>
+
+                <!-- Carousel Content -->
+                <div class="carousel-inner">
+                  <!-- First Slide -->
+                  <div class="carousel-item active">
+                    <img
+                      src="./assets/imgs/imgWelcomePage/imgMusic2.jpg"
+                      class="d-block w-100"
+                      alt="Music Party"
+                      style="transform: translateY(-15%); opacity: 0.6"
+                    />
+                  </div>
+
+                  <!-- Second Slide -->
+                  <div class="carousel-item">
+                    <img
+                      src="./assets/imgs/imgCaroselloHome/img_1.jpg"
+                      class="d-block w-100"
+                      alt="Second Slide"
+                      style="transform: translateY(-15%); opacity: 0.6"
+                    />
+                  </div>
+
+                  <!-- Third Slide -->
+                  <div class="carousel-item">
+                    <img
+                      src="./assets/imgs/imgCaroselloHome/img_2.jpg"
+                      class="d-block w-100"
+                      alt="Third Slide"
+                      style="opacity: 0.6"
+                    />
+                  </div>
+
+                  <!-- Quarto Slide -->
+                  <div class="carousel-item">
+                    <img
+                      src="./assets/imgs/imgCaroselloHome/img_3.jpg"
+                      class="d-block w-100"
+                      alt="Third Slide"
+                      style="opacity: 0.6"
+                    />
+                  </div>
+
+                  <!-- Quinto Slide -->
+                  <div class="carousel-item">
+                    <img
+                      src="./assets/imgs/imgCaroselloHome/img_4.jpg"
+                      class="d-block w-100"
+                      alt="Third Slide"
+                      style="opacity: 0.6"
+                    />
+                  </div>
+                  <!-- Sesto Slide -->
+                  <div class="carousel-item">
+                    <img
+                      src="./assets/imgs/imgCaroselloHome/img_5.jpg"
+                      class="d-block w-100"
+                      alt="Third Slide"
+                      style="opacity: 0.6"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BUONA SERA -->
+
+            <section class="ms-4 mt-3">
+              <div class="mt-3">
+                <!-- Contenitore Dropdown -->
+                <div class="dropdown d-flex d-lg-none justify-content-end me-4">
+                  <button
+                    class="btn btn-dark badge rounded-pill dropdown-toggle d-flex align-items-center mb-4"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    data-bs-offset="0,10"
+                    aria-expanded="false"
+                    style="padding: 8px 15px"
+                  >
+                    <img
+                      id="imgUtenteMenu"
+                      src="./assets/imgs/imgProfile/user_5.jpg"
+                      class="rounded-circle me-2"
+                      width="40"
+                      height="40"
+                      alt="User Avatar"
+                    />
+                  </button>
+                  <ul
+                    class="dropdown-menu dropdown-menu-end bg-dark border-0 shadow-lg"
+                    style="min-width: 200px"
+                  >
+                    <li>
+                      <a
+                        class="dropdown-item text-light d-flex align-items-center"
+                        href="./profile.html"
+                      >
+                        <i class="bi bi-gear pe-3"></i> Impostazioni
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item text-light d-flex align-items-center"
+                        href="./welcome-page.html"
+                        onclick="esci()"
+                      >
+                        <i class="bi bi-person-circle pe-3"></i> Esci
+                      </a>
+                    </li>
+                  </ul>
+                  <button
+                    id="amici"
+                    onclick="listaAmici()"
+                    class="btn btn-dark rounded-pill mt-2 d-none d-xl-block border-2 text-light fs-6"
+                    style="z-index: 2"
+                  >
+                    Lista amici
+                  </button>
+                </div>
+                <!-- Saluto Utente -->
+                <h1
+                  id="salutoUtente"
+                  class="text-white text-center text-lg-start fs-1 mb-4 mt-2"
+                >
+                  Ciao !
+                </h1>
+              </div>
+            </section>
+
+            <section id="albumHome" class="container-fluid">
+              <div class="row g-3 mx-2">
+                <div class="col col-6 col-lg-4">
+                  <a
+                    class="text-decoration-none text-center text-white flex-grow-1"
+                    href="./library.html"
+                  >
+                    <div class="d-flex align-items-center text-white">
+                      <img
+                        class="img-fluid"
+                        style="width: 82px; object-fit: cover"
+                        src="assets/imgs/liked song.png"
+                        alt="early stage"
+                      />
+                      <p
+                        class="ms-2 mb-0 text-center fs-lg-4 fw-medium fw-lg-bold"
+                      >
+                        Brani che ti piacciono
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col col-6 col-lg-4">
+                  <a
+                    class="text-decoration-none text-center text-white flex-grow-1"
+                    href="./playlistpage.html?id=IndieRock"
+                  >
+                    <div class="d-flex align-items-center text-white">
+                      <img
+                        class="img-fluid"
+                        style="width: 82px; object-fit: cover"
+                        src="https://images.pexels.com/photos/4629625/pexels-photo-4629625.jpeg"
+                        alt="early stage"
+                      />
+
+                      <p
+                        class="ms-2 mb-0 text-center fs-lg-4 fw-medium fw-lg-bold"
+                      >
+                        Early Stage - Indie Rock
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col col-6 col-lg-4">
+                  <a
+                    class="text-decoration-none text-center text-white flex-grow-1"
+                    href="./playlistpage.html?id=AltRock"
+                  >
+                    <div class="d-flex align-items-center text-white">
+                      <img
+                        class="img-fluid"
+                        style="width: 82px; object-fit: cover"
+                        src="https://images.pexels.com/photos/165971/pexels-photo-165971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="be the young"
+                      />
+
+                      <p
+                        class="ms-2 mb-0 text-center fs-lg-4 fw-medium fw-lg-bold"
+                      >
+                        Be the Young - Alt Rock
+                      </p>
+                    </div></a
+                  >
+                </div>
+                <div class="col col-6 col-lg-4">
+                  <a
+                    class="text-decoration-none text-center text-white flex-grow-1"
+                    href="./playlistpage.html?id=IndiePop"
+                  >
+                    <div class="d-flex align-items-center text-white">
+                      <img
+                        class="img-fluid"
+                        style="width: 82px; object-fit: cover"
+                        src="https://images.pexels.com/photos/1762578/pexels-photo-1762578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="kimiko vibes"
+                      />
+
+                      <p
+                        class="ms-2 mb-0 text-center fs-lg-4 fw-medium fw-lg-bold"
+                      >
+                        Kimiko Vibes - Indie Pop
+                      </p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col col-6 col-lg-4">
+                  <a
+                    class="text-decoration-none text-center text-white flex-grow-1"
+                    href="./artist-page.html?id=1"
+                  >
+                    <div class="d-flex align-items-center text-white">
+                      <img
+                        class="img-fluid"
+                        style="width: 82px; object-fit: cover"
+                        src="https://upload.wikimedia.org/wikipedia/en/thumb/4/42/Beatles_-_Abbey_Road.jpg/220px-Beatles_-_Abbey_Road.jpg"
+                        alt="saggio vibes"
+                      />
+
+                      <p
+                        class="ms-2 mb-0 text-center fs-lg-4 fw-medium fw-lg-bold"
+                      >
+                        The Beatles
+                      </p>
+                    </div></a
+                  >
+                </div>
+                <div class="col col-6 col-lg-4">
+                  <a
+                    class="text-decoration-none text-center text-white flex-grow-1"
+                    href="./artist-page.html?id=456366"
+                  >
+                    <div class="d-flex align-items-center text-white">
+                      <img
+                        class="img-fluid"
+                        style="width: 82px; object-fit: cover"
+                        src="https://www.falcomics.it/wp-content/uploads/2022/04/Giorgio-Vanni-Quadrato.jpg"
+                        alt="main character"
+                      />
+
+                      <p
+                        class="ms-2 mb-0 text-center fs-lg-4 fw-medium fw-lg-bold"
+                      >
+                        Giorgio Vanni
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            <section id="playlist">
+              <div class="container-fluid">
+                <h2 class="text-white mt-5 mx-3">Le playlist più ascoltate:</h2>
+                <div
+                  class="row row-cols-1 row-cols-lg-5 justify-content-center align-items-center my-4 gap-3 mx-3"
+                >
+                  <div class="col flex-grow-1">
+                    <div class="p-3 d-flex flex-column text-white gap-3">
+                      <div
+                        class="d-flex gap-3 flex-lg-column align-items-lg-center"
+                      >
+                        <img
+                          src="https://t3.ftcdn.net/jpg/02/97/00/28/360_F_297002806_sGFgV1oPMgeuRfAJpgF01p3RduNGDIxw.jpg"
+                          class="images-playlist object-fit-cover"
+                          alt="playlist"
+                        />
+                        <p class="fw-bold fs-5">
+                          <span class="fs-6 fw-normal text-secondary"
+                            >Playlist</span
+                          >
+                          <br />
+                          Study and work space
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between fs-3 align-items-center"
+                      >
+                        <div class="fs-5 me-xl-1">
+                          <i class="bi bi-suit-heart"></i>
+                        </div>
+                        <div class="align-items-center d-flex gap-4">
+                          <span class="fs-6 text-secondary">16 brani</span>
+                          <a
+                            class="text-decoration-none text-white"
+                            href="./album-page.html?=481101305"
+                          >
+                            <i class="bi bi-play-circle"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col flex-grow-1">
+                    <div class="p-3 d-flex flex-column text-white gap-3">
+                      <div
+                        class="d-flex gap-3 flex-lg-column align-items-lg-center"
+                      >
+                        <img
+                          src="https://www.cygnusmusic.net/wp-content/uploads/2023/06/This-Is-Playlist.jpg"
+                          class="images-playlist object-fit-cover"
+                          alt="playlist"
+                        />
+                        <p class="fw-bold fs-5">
+                          <span class="fs-6 fw-normal text-secondary"
+                            >Playlist</span
+                          >
+                          <br />
+                          This is Snoop Dogg
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between fs-3 align-items-center"
+                      >
+                        <div class="fs-5 me-xl-1">
+                          <i class="bi bi-suit-heart"></i>
+                        </div>
+                        <div class="align-items-center d-flex gap-4">
+                          <span class="fs-6 text-secondary">30 brani</span>
+                          <a
+                            class="text-decoration-none text-white"
+                            href="./album-page.html?=301177"
+                          >
+                            <i class="bi bi-play-circle"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col flex-grow-1">
+                    <div class="p-3 d-flex flex-column text-white gap-3">
+                      <div
+                        class="d-flex gap-3 flex-lg-column align-items-lg-center"
+                      >
+                        <img
+                          src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c41cb99a5051e4b1034622284"
+                          class="images-playlist object-fit-cover"
+                          alt="playlist"
+                        />
+                        <p class="fw-bold fs-5">
+                          <span class="fs-6 fw-normal text-secondary"
+                            >Playlist</span
+                          >
+                          <br />
+                          Only Rolling Stones
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between fs-3 align-items-center"
+                      >
+                        <div class="fs-5 me-xl-1">
+                          <i class="bi bi-suit-heart"></i>
+                        </div>
+                        <div class="align-items-center d-flex gap-4">
+                          <span class="fs-6 text-secondary">20 brani</span>
+                          <a
+                            class="text-decoration-none text-white"
+                            href="./album-page.html?=316447657"
+                          >
+                            <i class="bi bi-play-circle"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col flex-grow-1">
+                    <div class="p-3 d-flex flex-column text-white gap-3">
+                      <div
+                        class="d-flex gap-3 flex-lg-column align-items-lg-center"
+                      >
+                        <img
+                          src="https://i1.sndcdn.com/artworks-zWFpCflzYN8yyAZQ-xMXzlw-t500x500.jpg"
+                          class="images-playlist object-fit-cover"
+                          alt="playlist"
+                        />
+                        <p class="fw-bold fs-5">
+                          <span class="fs-6 fw-normal text-secondary"
+                            >Playlist</span
+                          >
+                          <br />
+                          Alternative rock mix
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between fs-3 align-items-center"
+                      >
+                        <div class="fs-5 me-xl-1">
+                          <i class="bi bi-suit-heart"></i>
+                        </div>
+                        <div class="align-items-center d-flex gap-4">
+                          <span class="fs-6 text-secondary">44 brani</span>
+                          <a
+                            class="text-decoration-none text-white"
+                            href="./album-page.html?=41407341"
+                          >
+                            <i class="bi bi-play-circle"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col flex-grow-1">
+                    <div class="p-3 d-flex flex-column text-white gap-3">
+                      <div
+                        class="d-flex gap-3 flex-lg-column align-items-lg-center"
+                      >
+                        <img
+                          src="https://cdn-d.smehost.net/sites/eca8caccee084ea1a6d20780b8091381/wp-content/uploads/2022/12/degregori.jpg"
+                          class="images-playlist object-fit-cover"
+                          alt="playlist"
+                        />
+                        <p class="fw-bold fs-5">
+                          <span class="fs-6 fw-normal text-secondary"
+                            >Playlist</span
+                          >
+                          <br />
+                          Canzoni anni 70'
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between fs-3 align-items-center"
+                      >
+                        <div class="fs-5 me-xl-1">
+                          <i class="bi bi-suit-heart"></i>
+                        </div>
+                        <div class="align-items-center d-flex gap-4">
+                          <span class="fs-6 text-secondary">35 brani</span>
+                          <a
+                            class="text-decoration-none text-white"
+                            href="./album-page.html?=50036962"
+                          >
+                            <i class="bi bi-play-circle"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col flex-grow-1">
+                    <div class="p-3 d-flex flex-column text-white gap-3">
+                      <div
+                        class="d-flex gap-3 flex-lg-column align-items-lg-center"
+                      >
+                        <img
+                          src="https://images.genius.com/9118a64d842f1611d83f5090989a3475.788x788x1.jpg"
+                          class="images-playlist object-fit-cover"
+                          alt="playlist"
+                        />
+                        <p class="fw-bold fs-5">
+                          <span class="fs-6 fw-normal text-secondary"
+                            >Playlist</span
+                          >
+                          <br />
+                          Canzoni anni 90'
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between fs-3 align-items-center"
+                      >
+                        <div class="fs-5 me-xl-1">
+                          <i class="bi bi-suit-heart"></i>
+                        </div>
+                        <div class="align-items-center d-flex gap-4">
+                          <span class="fs-6 text-secondary">47 brani</span>
+                          <a
+                            class="text-decoration-none text-white"
+                            href="./album-page.html?=44110651"
+                          >
+                            <i class="bi bi-play-circle"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col flex-grow-1">
+                    <div class="p-3 d-flex flex-column text-white gap-3">
+                      <div
+                        class="d-flex gap-3 flex-lg-column align-items-lg-center"
+                      >
+                        <img
+                          src="https://www.spettacolo.net/foto/g-391a.jpg"
+                          class="images-playlist object-fit-cover"
+                          alt="playlist"
+                        />
+                        <p class="fw-bold fs-5">
+                          <span class="fs-6 fw-normal text-secondary"
+                            >Playlist</span
+                          >
+                          <br />
+                          Canzoni anni 80'
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between fs-3 align-items-center"
+                      >
+                        <div class="fs-5 me-xl-1">
+                          <i class="bi bi-suit-heart"></i>
+                        </div>
+                        <div class="align-items-center d-flex gap-4">
+                          <span class="fs-6 text-secondary">33 brani</span>
+                          <a
+                            class="text-decoration-none text-white"
+                            href="./album-page.html?=228701152"
+                          >
+                            <i class="bi bi-play-circle"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col flex-grow-1">
+                    <div class="p-3 d-flex flex-column text-white gap-3">
+                      <div
+                        class="d-flex gap-3 flex-lg-column align-items-lg-center"
+                      >
+                        <img
+                          src="https://www.homolaicus.com/arte/images/de-andre.jpg"
+                          class="images-playlist object-fit-cover"
+                          alt="playlist"
+                        />
+                        <p class="fw-bold fs-5">
+                          <span class="fs-6 fw-normal text-secondary"
+                            >Playlist</span
+                          >
+                          <br />
+                          Canzoni anni 60'
+                        </p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between fs-3 align-items-center"
+                      >
+                        <div class="fs-5 me-xl-1">
+                          <i class="bi bi-suit-heart"></i>
+                        </div>
+                        <div class="align-items-center d-flex gap-4">
+                          <span class="fs-6 text-secondary">13 brani</span>
+                          <a
+                            class="text-decoration-none text-white"
+                            href="./album-page.html?=74495"
+                          >
+                            <i class="bi bi-play-circle"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Colonna di destra -->
+          <div id="colonna-destra" class="d-none col-lg-2 col-xl-2"></div>
+        </div>
+      </div>
+    </main>
+    <!-- Script Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Script Pagine ! -->
+    <script src="./assets/JS/homepage.js"></script>
+    <script src="./assets/JS/music.js"></script>
+    <script src="./assets/JS/utility.js"></script>
+  </body>
+</html>
