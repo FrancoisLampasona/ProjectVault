@@ -1,8 +1,0 @@
-# Ignora file temporanei di sistema
-*.swp
-.DS_Store
-.gitignore
-
-#Ignora la cartella  vscode 
-
-.vscode/
